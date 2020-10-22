@@ -1,2 +1,2 @@
-# diracnet
-PyTorch pseudo implementation based on Fermi network | 基于费米网络的PyTorch伪实现
+# Diracnet
+PyTorch pseudo implementation based on Ferminet | 基于ferminet的PyTorch伪实现
