@@ -5,7 +5,7 @@ from setuptools import setup
 REQUIRED_PACKAGES = [
     'absl-py', 'kfac>=0.2.3', 'numpy<1.19.0', 'pandas', 'pyscf', 'pyblock',
     'dm-sonnet<2.0', 'tables', 'torch>=1.0',
-    'tensorflow_probability==0.8'
+    #'tensorflow_probability==0.8'
 ]
 EXTRA_PACKAGES = {
     'torch': ['torch>=1.0'],
@@ -26,7 +26,7 @@ setup(
     author='llxlr',
     author_email='i@xhlr.top',
     # Contained modules and scripts.
-    #scripts=['diracnet'],
+    #scripts=['bin/diracnet'],
     packages=find_packages(),
     install_requires=REQUIRED_PACKAGES,
     extras_require=EXTRA_PACKAGES,
