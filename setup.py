@@ -1,6 +1,6 @@
-import unittest
 from setuptools import find_packages
 from setuptools import setup
+import unittest
 
 REQUIRED_PACKAGES = [
     'absl-py', 'kfac>=0.2.3', 'numpy<1.19.0', 'pandas', 'pyscf', 'pyblock',
@@ -20,7 +20,7 @@ def dirac_test_suite():
 
 setup(
     name='diracnet',
-    version='0.1',
+    version='0.0.1',
     description='',
     url='https://github.com/llxlr/diracnet',
     author='llxlr',
@@ -31,6 +31,6 @@ setup(
     install_requires=REQUIRED_PACKAGES,
     extras_require=EXTRA_PACKAGES,
     platforms=['any'],
-    license='MIT License',
+    license='Apache 2.0',
     test_suite='setup.diracnet_test_suite',
 )
