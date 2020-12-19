@@ -20,7 +20,7 @@ def dirac_test_suite():
 
 setup(
     name='diracnet',
-    version='0.0.1',
+    version='0.0.2',
     description='',
     url='https://github.com/llxlr/diracnet',
     author='llxlr',
