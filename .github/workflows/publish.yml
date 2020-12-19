@@ -2,7 +2,7 @@ name: Publish Python Package
 
 on:
   release:
-    types: [created]
+    types: [published]
 
 
 jobs:
@@ -23,6 +23,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install setuptools wheel
           python setup.py sdist bdist_wheel
+
+      #- name: Release whl file
+        #uses: actions/upload-release-asset@v1
 
       - name: Publish
         uses: pypa/gh-action-pypi-publish@v1.4.1
