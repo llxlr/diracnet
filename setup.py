@@ -3,13 +3,15 @@ from setuptools import setup
 import unittest
 
 REQUIRED_PACKAGES = [
-    'absl-py', 'kfac>=0.2.3', 'numpy<1.19.0', 'pandas', 'pyscf', 'pyblock',
-    'dm-sonnet<2.0', 'tables', 'torch>=1.0',
+    #'absl-py', 'kfac>=0.2.3', 'numpy<1.19.0', 'pandas', 'pyscf', 'pyblock',
+    #'dm-sonnet<2.0', 'tables', 'torch>=1.0',
     #'tensorflow_probability==0.8'
 ]
 EXTRA_PACKAGES = {
     'torch': ['torch>=1.0'],
 }
+with open('README.md') as f:
+    long_description = f.read()
 
 
 def dirac_test_suite():
@@ -22,6 +24,8 @@ setup(
     name='diracnet',
     version='0.0.2',
     description='',
+    long_description=long_description,
+    long_description_content_type='text/markdown',
     url='https://github.com/llxlr/diracnet',
     author='llxlr',
     author_email='i@xhlr.top',
