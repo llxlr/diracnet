@@ -2,7 +2,7 @@ from setuptools import find_packages
 from setuptools import setup
 import unittest
 
-with open('README.md') as f:
+with open('README.md', 'r', encoding='utf-8') as f:
     long_description = f.read()
 
 REQUIRED_PACKAGES = [
