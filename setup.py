@@ -2,16 +2,16 @@ from setuptools import find_packages
 from setuptools import setup
 import unittest
 
+with open('README.md') as f:
+    long_description = f.read()
+
 REQUIRED_PACKAGES = [
-    #'absl-py', 'kfac>=0.2.3', 'numpy<1.19.0', 'pandas', 'pyscf', 'pyblock',
-    #'dm-sonnet<2.0', 'tables', 'torch>=1.0',
-    #'tensorflow_probability==0.8'
+    'numpy<1.19.0', 'pandas',
+    'torch>=1.0',
 ]
 EXTRA_PACKAGES = {
     'torch': ['torch>=1.0'],
 }
-with open('README.md') as f:
-    long_description = f.read()
 
 
 def dirac_test_suite():
