@@ -23,7 +23,7 @@ def dirac_test_suite():
 setup(
     name='diracnet',
     version='0.0.2',
-    description='',
+    description='Pseudo implementation of Ferminet based on PyTorch | 基于PyTorch的Ferminet伪实现',
     long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/llxlr/diracnet',
