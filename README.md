@@ -1,2 +1,2 @@
 # Diracnet
-PyTorch pseudo implementation based on Ferminet | 基于ferminet的PyTorch伪实现
+Pseudo implementation of Ferminet based on PyTorch | 基于PyTorch的Ferminet伪实现
