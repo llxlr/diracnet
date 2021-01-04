@@ -26,22 +26,32 @@ jobs:
           pip install setuptools wheel
           python setup.py sdist bdist_wheel
 
-      - name: Release version
-        run: |
-          echo ::set-output VERSION=${{ github.ref }}
+      - name: Get version
+        id: get_version
+        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
 
-      #- name: Upload Release Asset
-        #uses: actions/upload-release-asset@v1
-        #env:
-          #GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          #VERSION: ${{ github.ref }}
-        #with:
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: true
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        with:
           # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`.
           # More info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
-          #upload_url: ${{ steps.create_release.outputs.upload_url }}
-          #asset_path: ./dist/diracnet-${VERSION}-py3-none-any.whl
-          #asset_name: diracnet-${VERSION}-py3-none-any.whl
-          #asset_content_type: application/zip
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./dist/diracnet-${VERSION}-py3-none-any.whl
+          asset_name: diracnet-${VERSION}-py3-none-any.whl
+          asset_content_type: application/zip
 
       - name: Publish
         uses: pypa/gh-action-pypi-publish@v1.4.1
