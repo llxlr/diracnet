@@ -1,13 +1,15 @@
 name: Publish Python Package
 
 on:
+  push:
+    tags: 'v*'
   release:
     types: [published]
 
 
 jobs:
   deploy:
-    name: publish python package to PYPI
+    name: Publish to pypi
     runs-on: ubuntu-latest
 
     steps:
@@ -24,8 +26,18 @@ jobs:
           pip install setuptools wheel
           python setup.py sdist bdist_wheel
 
-      #- name: Release whl file
+      #- name: Upload Release Asset
         #uses: actions/upload-release-asset@v1
+        #env:
+          #GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          #VERSION: ${{ github.ref }}
+        #with:
+          # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`.
+          # More info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
+          #upload_url: ${{ steps.create_release.outputs.upload_url }}
+          #asset_path: ./dist/diracnet-${VERSION}-py3-none-any.whl
+          #asset_name: diracnet-${VERSION}-py3-none-any.whl
+          #asset_content_type: application/zip
 
       - name: Publish
         uses: pypa/gh-action-pypi-publish@v1.4.1
