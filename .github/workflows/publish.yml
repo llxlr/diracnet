@@ -36,8 +36,8 @@ jobs:
           # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`.
           # More info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
           #upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./dist/diracnet-${VERSION}-py3-none-any.whl
-          asset_name: diracnet-${VERSION}-py3-none-any.whl
+          asset_path: ./dist/diracnet-${VERSION/#v/}-py3-none-any.whl
+          asset_name: diracnet-${VERSION/#v/}-py3-none-any.whl
           asset_content_type: application/zip
 
       - name: Publish
