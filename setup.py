@@ -1,5 +1,4 @@
-from setuptools import find_packages
-from setuptools import setup
+from setuptools import setup, find_packages
 import unittest
 
 with open('README.md', 'r', encoding='utf-8') as f:
@@ -29,8 +28,7 @@ setup(
     url='https://github.com/llxlr/diracnet',
     author='llxlr',
     author_email='i@xhlr.top',
-    # Contained modules and scripts.
-    #scripts=['bin/diracnet'],
+    #scripts=['bin/diracnet'],  # Contained modules and scripts.
     packages=find_packages(),
     install_requires=REQUIRED_PACKAGES,
     extras_require=EXTRA_PACKAGES,
